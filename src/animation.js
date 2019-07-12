@@ -50,10 +50,10 @@ function SwitchLines({ filterExit, filterEnter }) {
   return (
     <chain durations={[0.5, 0.5]}>
       <Stagger interval={0} filter={filterExit}>
-        <ShrinkHeight />
+        <GrowHeight />
       </Stagger>
       <Stagger interval={0} filter={filterEnter}>
-        <GrowHeight />
+        <ShrinkHeight />
       </Stagger>
     </chain>
   );
