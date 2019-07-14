@@ -62,6 +62,10 @@ const airframe = {
       const value = from[key] + (to[key] - from[key]) * ease(t);
       if (key === "x") {
         style["transform"] = `translateX(${value}px)`;
+      } else if (key === "backgroundGreen") {
+        style["backgroundColor"] = `rgb(0, ${value}, 0)`;
+      } else if (key === "backgroundRed") {
+        style["backgroundColor"] = `rgb(${value}, 0, 0)`;
       } else {
         style[key] = value;
       }

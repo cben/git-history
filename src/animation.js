@@ -49,24 +49,29 @@ function SwitchLines({ filterExit, filterEnter, filterFadeOut }) {
     <parallel>
       <Stagger interval={0.2} filter={filterExit}>
         <chain durations={[0.35, 0.3, 0.35]}>
-          <SlideToLeft />
+          <tween
+            from={{ backgroundRed: 64 }}
+            to={{ backgroundRed: 0 }}
+            ease={easing.easeOutCubic}
+          />
           <ShrinkHeight />
         </chain>
       </Stagger>
       <Stagger interval={0.2} filter={filterEnter}>
         <chain durations={[0.35, 0.3, 0.35]}>
-          <delay />
           <GrowHeight />
-          <SlideFromRight />
         </chain>
       </Stagger>
       <Stagger interval={0} filter={filterEnter}>
-        <tween from={{ opacity: offOpacity }} to={{ opacity: 1 }} />
+      <tween
+        from={{ opacity: offOpacity, backgroundGreen: 0 }}
+        to={{ opacity: 1, backgroundGreen: 64 }}
+        />
       </Stagger>
       <Stagger interval={0} filter={filterFadeOut}>
         <tween
-          from={{ opacity: 1 }}
-          to={{ opacity: offOpacity }}
+          from={{ opacity: 1, backgroundRed: 64 }}
+          to={{ opacity: offOpacity, backgroundRed: 0 }}
           ease={easing.easeOutCubic}
         />
       </Stagger>
